@@ -13,12 +13,21 @@ For example, if the input is 'Welcome', the output will be:
 ['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', ''].
 ------------------------------------------------------------------------------------------------ */
 
+<<<<<<< HEAD
 const howMuchPencil = (str) => {
     let result = [];
     for (i=0; i < str.length; i++) {
         result.push(str.slice(i, str.lenth))
     }
     return result;
+=======
+const howMuchPencil = (Str) => {
+  let result = [];
+  for (i=0; i< str.length; i++) {
+    result.push(str.slice(i, str.lenth));
+  }
+  return result;
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -29,9 +38,13 @@ Write a function name wordsToCharList that, given a string as input, returns a n
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
+<<<<<<< HEAD
 const wordsToCharList = (arr) => {
   // Solution code here...
 };
+=======
+const wordsToCharList = (arr) => arr.split('');
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -156,7 +169,12 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
+<<<<<<< HEAD
   // Solution code here...
+=======
+  let myList = str.split(',');
+  myList.forEach(item => total += parseInt(element));
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   return total;
 };
 
@@ -207,7 +225,11 @@ describe('Testing challenge 1', () => {
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 2', () => {
+=======
+describe('Testing challenge 2', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should return an array of individual letters', () => {
     expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
     expect(wordsToCharList('Gregor').length).toStrictEqual(6);
@@ -216,27 +238,43 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 3', () => {
+=======
+describe('Testing challenge 3', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should return a list of foods', () => {
     expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 4', () => {
+=======
+describe('Testing challenge 4', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should return a list of foods', () => {
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 5', () => {
+=======
+describe('Testing challenge 5', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should return a list of recipe steps', () => {
     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 6', () => {
+=======
+describe('Testing challenge 6', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -249,7 +287,11 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 7', () => {
+=======
+describe('Testing challenge 7', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should shorten the string based on the first argument', () => {
     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
@@ -265,14 +307,22 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 8', () => {
+=======
+describe('Testing challenge 8', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should add up the numbers contained within the string', () => {
     expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
     expect(totalSumCSV('147')).toStrictEqual(147);
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 9', () => {
+=======
+describe('Testing challenge 9', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should return the string without vowels', () => {
     expect(removeVowels('gregor')).toStrictEqual('grgr');
     expect(removeVowels('gregor').length).toStrictEqual(4);
@@ -281,7 +331,11 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
+<<<<<<< HEAD
 xdescribe('Testing challenge 10', () => {
+=======
+describe('Testing challenge 10', () => {
+>>>>>>> f8da83c23ad448376759912560cf1535b45804c1
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
