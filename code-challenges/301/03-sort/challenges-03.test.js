@@ -94,7 +94,7 @@ const people = [
   new Person('Stan', 'Seattle', 67),
 ];
 
-const sortPeople = (arr) =>arr.sort((a,b) => {
+const sortPeople = (arr) => arr.sort((a,b) => {
   return a.lastName > b.lastName ? 1 : b.lastName > a.lastName ? -1 : 0;
 });
 
@@ -107,9 +107,11 @@ If two people share the same last name, alphabetize on their first name.
 
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
-
+// Taken from https://frontrowviews.com/Home/Event/Play/5cb6b5597d450d08e43e6d8c
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a,b) => {
+    return a.lastName.localeCompare(b.lastName) || a.firstName.localeCompare(b.firstName) || a.age - b.age;
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -237,7 +239,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
