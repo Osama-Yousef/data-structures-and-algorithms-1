@@ -69,9 +69,9 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => arr.sort((a,b) => {
-  a = a.toString();
-  b = b.toString();
-  return a.length > b.length ? 1 : b.length > a.length ? -1 : 0;
+  a = a.toString().length;
+  b = b.toString().length;
+  return a > b ? 1 : b > a ? -1 : 0;
 });
 
 
@@ -225,7 +225,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should sort people by their last names', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
