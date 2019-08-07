@@ -20,11 +20,7 @@ The callback function to filter should include or utilize a regular expression p
 For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 'hound'].
 ------------------------------------------------------------------------------------------------ */
 
-
-const filterStringsWithVowels = (arr) => {
-  // Solution code here...
-};
-
+const filterStringsWithVowels = (arr) => arr.filter(n => /[aeiou]/.test(n));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -178,7 +174,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return an array containing only words that have vowels', () => {
     expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
     expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
