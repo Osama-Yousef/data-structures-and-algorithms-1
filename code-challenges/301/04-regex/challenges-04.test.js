@@ -31,7 +31,7 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 const citiesAtoJ = (arr) => {
   let caps = [];
-  arr.forEach((city) => {if (/^[A-J]\w+/.test(city)) {caps.push(city)} });
+  arr.forEach((city) => {if (/^[A-J]/.test(city)) {caps.push(city)} });
   return caps;
 };
 
@@ -47,9 +47,7 @@ If the user enters any of these four inputs, return true. For any other input, r
 Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
-const matchMonth = (input) => {
-  // Solution code here...
-};
+const matchMonth = (input) => return /^oct/i.test(input) ? true : false;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -151,7 +149,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
