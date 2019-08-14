@@ -47,11 +47,8 @@ If the user enters any of these four inputs, return true. For any other input, r
 
 Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
-
-const matchMonth = (input) => {
-  let allowed = [/oct/, /october/, /Oct/, /October/];
-  allowed.forEach((rx => {if (rx.test(input)) {return true} }));
-};
+// TODO: This doesn't completely work
+const matchMonth = (input) => { if (input.toString().match(/^[Oo]ct(ober)?$/)) { return true } else { return false }};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
