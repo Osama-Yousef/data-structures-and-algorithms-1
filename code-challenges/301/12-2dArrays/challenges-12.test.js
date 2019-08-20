@@ -68,7 +68,7 @@ const howManyTreats = arr => {
   for (let i=0; i < arr.length; i++) {
     if (arr[i].store === 'Pet store') {
       for (let j=0; j < arr[i].items.length; j++) {
-        if (arr[i].items[j].name  === 'Treats') {
+        if (arr[i].items[j].name === 'Treats') {
           return arr[i].items[j].quantity;
         }
       }
@@ -94,9 +94,7 @@ Here is a sample board:
 The top row of the board is considered row zero and row numbers increase as they go down.
 ------------------------------------------------------------------------------------------------ */
 
-const battleship = (board, row, col) => {
-  //  Solution code here...
-};
+const battleship = (board, row, col) => board[row][col] === '#' ? 'hit' : 'miss';
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -213,7 +211,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   const battleshipData = [
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
