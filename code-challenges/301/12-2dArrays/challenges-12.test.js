@@ -104,9 +104,7 @@ Write a function named calculateProduct that takes in a two-dimensional array of
 For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
-const calculateProduct = (numbers) => {
-  // Solution code here...
-};
+const calculateProduct = (numbers) => numbers.flat().reduce((acc, cur) => acc * cur);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -230,7 +228,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1,2], [3,4], [5,6]])).toStrictEqual(720);
   });
