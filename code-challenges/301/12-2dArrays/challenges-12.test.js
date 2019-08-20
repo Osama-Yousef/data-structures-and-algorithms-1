@@ -10,8 +10,11 @@ Write a function named grandTotal that adds up the cookies sales for each hour o
 For this example, the total at 9:00 a.m. is 17 + 26 + 7 + 5 + 33, or 88 total cookies.
 
 Return the array of the total number of cookies sold per hour for all of the stores combined.
------------------------------------------------------------------------------------------------- */
 
+grandTotal(cookieStores)
+grandTotal = [88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169];
+------------------------------------------------------------------------------------------------ */
+//https://stackoverflow.com/questions/32139773/sum-array-of-arrays-matrix-vertically-efficiently-elegantly
 const hoursOpen = ['9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.', '8 p.m.'];
 
 const firstPike = [17, 18, 23, 24, 24, 12, 13, 27, 30, 20, 24, 18];
@@ -23,7 +26,8 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
+  let total = [];
+  stores.map( arr => {})
 
 };
 
