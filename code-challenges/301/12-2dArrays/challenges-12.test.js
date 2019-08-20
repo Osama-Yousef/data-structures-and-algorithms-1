@@ -112,6 +112,8 @@ CHALLENGE 6
 Write a function named averageDailyTemperature that accepts a two-dimensional array representing average daily temperatures grouped week-by-week.
 
 Calculate the average daily temperature during that entire period. Your output should be a single number. Write your function so it could accept an array with any number of weeks given to it.
+
+//averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25)
 ------------------------------------------------------------------------------------------------ */
 
 // Real daily average temperatures for Seattle, October 1-28 2017
@@ -122,9 +124,7 @@ const weeklyTemperatures = [
   [65, 56, 55, 52, 55, 62, 57],
 ];
 
-const averageDailyTemperature = (weather) => {
-  // Solution code here...
-};
+const averageDailyTemperature = (weather) => weather.flat().reduce((acc, cur) => acc + cur)/weather.flat().length;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -241,7 +241,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should calculate and return the average temperature of the data set', () => {
     expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
   });
