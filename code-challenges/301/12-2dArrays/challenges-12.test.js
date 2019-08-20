@@ -38,10 +38,18 @@ Pat has decided that he would also like to organize his data as objects containi
 Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
+
+expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
+      { sales: '88 cookies', time: '9 a.m.' },
+      { sales: '153 cookies', time: '10 a.m.' },
+      { sales: '252 cookies', time: '11 a.m.' },
+      { sales: '286 cookies', time: '12 p.m.' },
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let totals = [];
+  data.forEach( (item, idx) => totals.push({sales: `${item} cookies`, time: hours[idx]}));
+  return totals;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -175,7 +183,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should create an object of data for each store', () => {
     expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
       { sales: '88 cookies', time: '9 a.m.' },
