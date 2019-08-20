@@ -26,9 +26,8 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  let total = [];
-  stores.map( arr => {})
-
+  let sum = (r, a) => r.map((b, i) => a[i] + b);
+  return stores.reduce(sum);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -170,7 +169,7 @@ Run your tests from the console: jest challenge-12.test.js
 ------------------------------------------------------------------------------------------------ */
 
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should add the hourly totals array', () => {
     expect(grandTotal(cookieStores)).toStrictEqual([88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169]);
   });
