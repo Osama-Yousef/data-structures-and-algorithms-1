@@ -81,9 +81,7 @@ let starWarsData = [{
   gender: 'n/a'
 }];
 
-let biggerThanLuke = (arr) => {
-  // Solution code here...
-};
+let biggerThanLuke = arr => arr.filter(obj => obj.mass > 77).map(obj => obj.name).join(' - ');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -99,9 +97,7 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBy = (property, arr) => {
-  // Solution code here...
-};
+const sortBy = (property, arr) => arr.sort((a,b) => a[property] > b[property]);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
