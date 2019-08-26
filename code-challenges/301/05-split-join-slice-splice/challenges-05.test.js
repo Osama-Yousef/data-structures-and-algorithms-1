@@ -128,6 +128,7 @@ For example:
   console.log(integers) will print [1, 3, 5]
 ------------------------------------------------------------------------------------------------ */
 // I can't get my nested forEach loops to work correctly...
+// linter doesn't like key on line 133
 const removeEvenValues = (arr) => {
   let length = arr;
   for (let key in length) {
