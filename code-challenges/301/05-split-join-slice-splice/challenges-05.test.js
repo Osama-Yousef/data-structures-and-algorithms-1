@@ -127,9 +127,15 @@ For example:
   removeEvenValues(integers);
   console.log(integers) will print [1, 3, 5]
 ------------------------------------------------------------------------------------------------ */
-
+// I can't get my nested forEach loops to work correctly...
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  let length = arr;
+  for (let key in length) {
+    for (let key in arr) {
+      if (arr[key] % 2 === 0) {arr.splice(key, 1)}
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -241,7 +247,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
