@@ -66,7 +66,7 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-const returnNames = (arr) => arr.reduce((agg, val, idx) => agg.push(val.name); return agg}, []);
+const returnNames = (arr) => arr.reduce((agg, val) => {agg.push(val.name); return agg}, []);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -246,7 +246,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 3', () => {
+xdescribe('Testing challenge 3', () => {
   test('It should return the string with the characters in reverse order', () => {
     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
   });
