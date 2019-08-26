@@ -71,11 +71,18 @@ const gruffaloCrumble = {
   ]
 };
 
+// expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 
+// 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 
+// 'melted butter', 'fresh water']);
 
 const listFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
+  let results = [];
+  recipe.ingredients.forEach(ingredient => {
+    let quantity = ingredient.slice(ingredient.indexOf(' ')+1);
+    let units = quantity.slice(quantity.indexOf(' ')+1);
+    results.push(units)
+  })
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,9 +94,9 @@ You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
 const splitFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
+  let results = [];
+  recipe.ingredients.forEach(ingredient => results.push(ingredient.split(' ').slice(2).join(' ')));
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -103,9 +110,9 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 ------------------------------------------------------------------------------------------------ */
 
 const stepActions = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
+  let verbs = [];
+  recipe.steps.forEach(items => verbs.push(items.split(' ')[0]));
+  return verbs;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,9 +127,16 @@ For example:
   removeEvenValues(integers);
   console.log(integers) will print [1, 3, 5]
 ------------------------------------------------------------------------------------------------ */
-
+// I can't get my nested forEach loops to work correctly...
+// linter doesn't like key on line 133
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  let length = arr;
+  for (let key in length) {
+    for (let key in arr) {
+      if (arr[key] % 2 === 0) {arr.splice(key, 1)}
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -140,10 +154,7 @@ removeLastCharacters('Gregor', -2) returns 'Gregor'
 removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
-const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
-};
-
+const removeLastCharacters = (str, numberOfCharacters) => str.slice(0, str.length - numberOfCharacters);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -214,27 +225,27 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return a list of foods', () => {
     expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return a list of foods', () => {
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return a list of recipe steps', () => {
     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -247,7 +258,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should shorten the string based on the first argument', () => {
     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
