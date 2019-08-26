@@ -93,7 +93,11 @@ Write a function named splitFoods that uses split to produce the same output as 
 You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
-const splitFoods = {};
+const splitFoods = (recipe) => {
+  let results = [];
+  recipe.ingredients.forEach(ingredient => results.push(ingredient.split(' ').slice(2).join(' ')));
+  return results;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -224,7 +228,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return a list of foods', () => {
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
