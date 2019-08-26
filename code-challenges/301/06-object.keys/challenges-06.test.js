@@ -93,7 +93,9 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  let results = [];
+  arr.forEach(item => {if (item.name === character) {results = Object.values(item)[2].length > 0}})
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,7 +107,12 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  let results = false;
+  arr.forEach(item => {
+    if (item.name === character) {
+      Object.entries(item.children).length > 0 ? results = true : results = false;
+    }})
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -115,7 +122,13 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let count = 0;
+  arr.forEach(person => {
+    if(person.name){count++}
+    if(person.spouse){count++}
+    if(person.children){count+=person.children.length}
+  })
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -192,7 +205,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
   });
@@ -202,7 +215,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the number of characters in the array', () => {
     expect(totalCharacters(characters)).toStrictEqual(27);
   });
