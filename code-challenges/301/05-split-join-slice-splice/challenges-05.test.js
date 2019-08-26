@@ -71,8 +71,8 @@ const gruffaloCrumble = {
   ]
 };
 
-// expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 
-// 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 
+// expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar',
+// 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon',
 // 'melted butter', 'fresh water']);
 
 const listFoods = (recipe) => {
