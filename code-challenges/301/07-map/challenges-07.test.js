@@ -62,10 +62,14 @@ If any element in the array is not a number, the resulting array should have the
 
 For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
+// function example(…) {
+//   return condition1 ? value1
+//        : condition2 ? value2
+//        : condition3 ? value3
+//        : value4;
+// }
 
-const evenOdd = (arr) => {
-  // Solution code here...
-};
+const evenOdd = (arr) => arr.map(element => isNaN(element) ? 'N/A' : (element % 2 === 0) ? 'even' : 'odd');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -209,7 +213,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array containing the keys from an object', () => {
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541])).toStrictEqual([ 'odd', 'even', 'even', 'even', 'odd', 'odd', 'even', 'odd' ]);
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541]).length).toStrictEqual(8);
