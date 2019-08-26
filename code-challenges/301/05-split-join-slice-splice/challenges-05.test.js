@@ -76,9 +76,13 @@ const gruffaloCrumble = {
 // 'melted butter', 'fresh water']);
 
 const listFoods = (recipe) => {
-  let result = [];
-  recipe.ingredients
-  return result;
+  let results = [];
+  recipe.ingredients.forEach(ingredient => {
+    let quantity = ingredient.slice(ingredient.indexOf(' ')+1);
+    let units = quantity.slice(quantity.indexOf(' ')+1);
+    results.push(units)
+  })
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,11 +93,7 @@ Write a function named splitFoods that uses split to produce the same output as 
 You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
-const splitFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
-};
+const splitFoods = {};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -217,7 +217,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return a list of foods', () => {
     expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
