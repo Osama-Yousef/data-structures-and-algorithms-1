@@ -122,7 +122,13 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let count = 0;
+  arr.forEach(person => {
+    if(person.name){count++}
+    if(person.spouse){count++}
+    if(person.children){count+=person.children.length}
+  })
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -209,7 +215,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the number of characters in the array', () => {
     expect(totalCharacters(characters)).toStrictEqual(27);
   });
