@@ -161,9 +161,7 @@ const isPrime = (value) => {
   return value > 1;
 };
 
-const countPrimeNumbers = (arr) => {
-  // Solution code here...
-};
+const countPrimeNumbers = (arr) => arr.reduce((agg, val) => {if (isPrime(val)) { agg++ } return agg }, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -263,7 +261,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return a count of the prime numbers in the array', () => {
     expect(countPrimeNumbers([1, 2, 13, 64, 45, 56, 17, 8])).toStrictEqual(3);
   });
