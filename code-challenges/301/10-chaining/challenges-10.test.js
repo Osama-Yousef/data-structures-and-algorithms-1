@@ -1,4 +1,3 @@
-
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,10 +35,14 @@ This function should then raise 2 to the power of the resulting numbers, returni
 
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
+// Based off of https://repl.it/@odran037/divisibleByFiveTwoToThePower
 
-const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
-};
+const divisibleByFiveTwoToThePower = (input) =>
+  input.map(arr =>
+    arr.filter(i => {
+      return ((i % 5 === 0) && (typeof(i) === 'number'));
+    }).map(i => Math.pow(2, i))
+  );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -103,9 +106,13 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-let findMaleAndFemale = (data) => {
-  // Solution code here...
-};
+let findMaleAndFemale = (data) =>
+  data.filter(char => (
+    (char.gender === 'male' || char.gender === 'female')))
+    .reduce((acc, val) => {
+      acc.push(val.name)
+      return acc;
+    }, []).join(' and ');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -113,8 +120,8 @@ CHALLENGE 5
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the shortest character.
 ------------------------------------------------------------------------------------------------ */
 
-let findShortest = (data) => data.reduce((acc,val)=>{
-  if(parseInt(val.height) < parseInt(acc.height)){ acc = val}
+let findShortest = (data) => data.reduce((acc,val) => {
+  if (parseInt(val.height) < parseInt(acc.height)) {acc = val}
   return acc
 }).name
 
