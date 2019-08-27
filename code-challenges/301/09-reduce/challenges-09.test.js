@@ -66,7 +66,7 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-const returnNames = (arr) => arr.reduce((agg, val, idx) => agg.push(val.name); return agg}, []);
+const returnNames = (arr) => arr.reduce((agg, val) => {agg.push(val.name); return agg}, []);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -76,9 +76,7 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (str) => {
-  // Solution code here...
-};
+const reversedString = (str) => str.split('').reduce((agg, val) => val + agg);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -129,9 +127,12 @@ const characters = [
   },
 ];
 
-const countNumberOfChildren = (arr) => {
-  // Solution code here...
-};
+const countNumberOfChildren = (arr) => arr.reduce((agg, val) => {
+  if (val.children) {
+    agg += val.children.length
+  }
+  return agg;
+}, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -141,9 +142,7 @@ Write a function that, given an array of numbers as input, uses reduce to calcul
 Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
-const calculateAverage = (arr) => {
-  // Solution code here...
-};
+const calculateAverage = (arr) => arr.reduce((arr, val) => arr += val, 0) / arr.length;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -162,9 +161,7 @@ const isPrime = (value) => {
   return value > 1;
 };
 
-const countPrimeNumbers = (arr) => {
-  // Solution code here...
-};
+const countPrimeNumbers = (arr) => arr.reduce((agg, val) => {if (isPrime(val)) { agg++ } return agg }, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -252,19 +249,19 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the average of the numbers in the array', () => {
     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return a count of the prime numbers in the array', () => {
     expect(countPrimeNumbers([1, 2, 13, 64, 45, 56, 17, 8])).toStrictEqual(3);
   });
