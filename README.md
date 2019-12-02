@@ -1,25 +1,16 @@
-python-data-structures-and-algorithms
-=====================================
-Author: Aaron Imbrock
+# Data Structures and Algorithms
+================================
 
-Personal Datastructures and Algorithms repo for CodeFellows 401
+### Author: Aaron Imbrock
 
-Table of Contents
+Personal Datastructures and Algorithms repo for CodeFellows Python 401
+
+## Table of Contents
 =================
 
-   * [python-data-structures-and-algorithms](#python-data-structures-and-algorithms)
-   * [Reverse an Array](#reverse-an-array)
-      * [Challenge](#challenge)
-      * [Approach &amp; Efficiency](#approach--efficiency)
-      * [Solution](#solution)
-# Reverse an Array
-<!-- Short summary or background information -->
+#### [Code Challenges](https://github.com/aimbrock/python-data-structures-and-algorithms/tree/master/challenges)
+   * [Reverse an Array](https://github.com/aimbrock/python-data-structures-and-algorithms/tree/master/challenges/01-array-reverse)
 
-## Challenge
-<!-- Description of the challenge -->
+#### [Data Structures]
 
-## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-
-## Solution
-![Reversed array whiteboard](./assets/array-reverse.jpg)
+#### [Sorts]
