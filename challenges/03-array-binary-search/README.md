@@ -3,7 +3,10 @@ Given a sorted array of numbers and a target value, return the index of the targ
 
 ## Tests
 
-TBD
+test_binary_search_null - Test for empty array. 
+test_binary_search_even - Test for even array.
+test_binary_search_odd - Test for odd array.
+test_binary_search_not_found - Test for target value not found in array.
 
 ## Challenge
 Write a function called binary_search which takes in 2 parameters: a sorted array and the search key. Return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
