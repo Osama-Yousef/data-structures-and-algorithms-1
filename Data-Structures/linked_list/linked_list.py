@@ -11,21 +11,20 @@ class Node:
         TODO: CONTENTS AND SYNTAX FOR REPR(). SEE PY3DOCS.
         https://docs.python.org/3/reference/datamodel.html#object.__repr__
         """
-        return "<class '__main__.Node: {self._element} {self._next}>"
+        return f"<class '__main__.Node: _data: {self._data} _next_node: {self._next_node}>"
 
     def __str__(self):
-        """
-        TODO: MAKE THIS.“informal” or nicely printable string representation of an object.
-        https://docs.python.org/3/reference/datamodel.html#object.__str__
-        """
+        """Nicely printable string representation of instantiated Node class"""
+        return f"_data => {self._data} _next Node => {self._next_node}"
+
     def get_data(self):
         return self._data
 
     def get_next_node(self):
         return self._next_node
 
-    def set_next_node(self, new_next):
-        self._next_node = new_next
+    def set_next_node(self, next_node):
+        self._next_node = next_node
 
 class LinkedList:
     """Singly linked list implementation"""
@@ -44,14 +43,19 @@ class LinkedList:
 
     def __repr__(self):
         """TODO: SEE ABOVE. Returns printable representational string of the given object"""
-        return self
+        return f"<class '__main__.LinkedList: head: {self.head} size: {self.size}>"
 
-    # def __str__(self):
+    def __str__(self):
     #     """TODO: SEE ABOVE Returns a string representing all values on the stack"""
     #     Define a method __str__ 
     #     which takes in no arguments and returns a string representing all the values
     #     in the Linked List, formatted as:
     #     "{ a } -> { b } -> { c } -> NULL"
+        current_node = self.head
+        while current_node._next_node != None:
+            print("{{ {} }} -> ".format(current_node), end='')
+            current_node = current_node._next_node
+        print("NULL")
 
     def insert(self, data):
         """PUSH a new node with that value to the head of the list with an O(1) time performance"""
