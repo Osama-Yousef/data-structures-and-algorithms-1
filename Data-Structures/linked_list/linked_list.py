@@ -1,10 +1,10 @@
 
 class Node:
     """Nonpublic class for storing a singly linked node"""
-    def __init__(self, element, next = None):
+    def __init__(self, data, next_node = None):
         """Arguments passed to the class constructor expression"""
-        self._element = element
-        self._next = next
+        self._data = data
+        self._next_node = next_node
 
     def __repr__(self):
         """
@@ -18,6 +18,14 @@ class Node:
         TODO: MAKE THIS.“informal” or nicely printable string representation of an object.
         https://docs.python.org/3/reference/datamodel.html#object.__str__
         """
+    def get_data(self):
+        return self._data
+
+    def get_next_node(self):
+        return self._next_node
+
+    def set_next_node(self, new_next):
+        self._next_node = new_next
 
 class LinkedList:
     """Singly linked list implementation"""
@@ -45,14 +53,19 @@ class LinkedList:
     #     in the Linked List, formatted as:
     #     "{ a } -> { b } -> { c } -> NULL"
 
-    def insert(self, e):
+    def insert(self, data):
         """PUSH a new node with that value to the head of the list with an O(1) time performance"""
-        self.head = Node(e, self.head)
+        current_node = self.head
+        self.head = Node(data, current_node)
         self.size += 1
 
-    # def includes(self, e):
-    #     """Returns True if value exists on the stack"""
-    #     if self.e == e:
-    #         return True
-    #     else:
-    #         return False
+    def includes(self, data):
+        """Returns True if value exists on the stack"""
+        current_node = self.head
+        while current_node._next_node != None:
+            if current_node._data == data:
+                return True
+            else:
+                current_node = current_node._next_node
+
+        return False
