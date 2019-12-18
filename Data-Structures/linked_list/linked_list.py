@@ -28,9 +28,9 @@ class Node:
 
 class LinkedList:
     """Singly linked list implementation"""
-    def __init__(self):
+    def __init__(self, node_obj = None):
         """Create empty linked list"""
-        self.head = None
+        self.head = node_obj
         self.size = 0
 
     def __len__(self):
