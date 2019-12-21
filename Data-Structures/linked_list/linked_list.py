@@ -17,15 +17,6 @@ class Node:
         """Nicely printable string representation of instantiated Node class"""
         return f"_data => {self._data} _next Node => {self._next_node}"
 
-    def get_data(self):
-        return self._data
-
-    def get_next_node(self):
-        return self._next_node
-
-    def set_next_node(self, next_node):
-        self._next_node = next_node
-
 class LinkedList:
     """Singly linked list implementation"""
     def __init__(self, node_obj = None):
@@ -42,20 +33,18 @@ class LinkedList:
         return self.size == 0
 
     def __repr__(self):
-        """TODO: SEE ABOVE. Returns printable representational string of the given object"""
+        """Returns printable representational string of the given object"""
         return f"<class '__main__.LinkedList: head: {self.head} size: {self.size}>"
 
     def __str__(self):
-    #     """TODO: SEE ABOVE Returns a string representing all values on the stack"""
-    #     Define a method __str__ 
-    #     which takes in no arguments and returns a string representing all the values
-    #     in the Linked List, formatted as:
-    #     "{ a } -> { b } -> { c } -> NULL"
+        """Returns a string representing all values on the stack"""
         current_node = self.head
-        while current_node._next_node != None:
-            print("{{ {} }} -> ".format(current_node), end='')
+        result = ''
+        while current_node:
+            result += f'{{ {current_node._data} }} -> '
             current_node = current_node._next_node
-        print("NULL")
+        result += f'NULL'
+        return result
 
     def insert(self, data):
         """PUSH a new node with that value to the head of the list with an O(1) time performance"""
@@ -66,7 +55,7 @@ class LinkedList:
     def includes(self, data):
         """Returns True if value exists on the stack"""
         current_node = self.head
-        while current_node._next_node != None:
+        while current_node:
             if current_node._data == data:
                 return True
             else:
