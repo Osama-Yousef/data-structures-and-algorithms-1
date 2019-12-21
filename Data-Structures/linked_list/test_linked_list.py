@@ -1,11 +1,3 @@
-# Can successfully instantiate an empty linked list
-# Can properly insert into the linked list
-# The head property will properly point to the first node in the linked list
-# Can properly insert multiple nodes into the linked list
-# Will return true when finding a value within the linked list that exists
-# Will return false when searching for a value in the linked list that does not exist
-# Can properly return a collection of all the values that exist in the linked list
-
 from linked_list import Node, LinkedList
 import pytest
 
@@ -30,13 +22,6 @@ def test_instantiate_linked_list():
     """
     ll = LinkedList()
     assert ll.head == None
-
-
-def test_head_first():
-    """
-    The head property will properly point to the first node in the linked list
-    """
-    
 
 def test_insert_multiple_nodes():
     """
@@ -74,3 +59,63 @@ def test_return_all_nodes():
     ll.insert('blah1')
     ll.insert('blahblah')
     assert ll.__str__() == '{ blahblah } -> { blah1 } -> NULL'
+
+def test_append():
+    """
+    Can successfully add a node to the end of the linked list
+    """
+    ll = LinkedList()
+    ll.append('blah')
+    assert ll.head._data == 'blah'
+
+def test_add_multiple_append():
+    """
+    Can successfully add multiple nodes to the end of a linked list
+    """
+    ll = LinkedList()
+    ll.append('blah')
+    ll.append('blah2')
+    assert ll.head._data == 'blah'
+    assert ll.head._next_node._data == 'blah2'
+
+def test_insert_before_middle():
+    """
+    Can successfully insert a node before a node located in the middle of a linked list
+    """
+    ll = LinkedList()
+    ll.append('blah1')
+    ll.append('blah2')
+    ll.append('blah3')
+    ll.insert_before('blah2', 33)
+    assert ll.head._next_node._data == 33
+    
+def test_insert_before_first_node():
+    """
+    Can successfully insert a node before the first node of a linked list
+    """
+    ll = LinkedList()
+    ll.append('blah1')
+    ll.insert_before('blah1', 22)
+    assert ll.head._data == 22
+
+def test_insert_after_after_middle():
+    """
+    Can successfully insert after a node in the middle of the linked list
+    """
+    ll = LinkedList()
+    ll.append('blah1')
+    ll.append('blah2')
+    ll.append('blah3')
+    ll.insert_after('blah2', 33)
+    assert ll.head._next_node._next_node._data == 33   
+
+def test_insert_after_last():
+    """
+    Can successfully insert a node after the last node of the linked list
+    """
+    ll = LinkedList()
+    ll.append('blah1')
+    ll.append('blah2')
+    ll.append('blah3')
+    ll.insert_after('blah3', 33)
+    assert ll.head._next_node._next_node._next_node._data == 33
