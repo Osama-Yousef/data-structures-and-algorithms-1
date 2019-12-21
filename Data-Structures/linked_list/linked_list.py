@@ -19,9 +19,9 @@ class Node:
 
 class LinkedList:
     """Singly linked list implementation"""
-    def __init__(self, node_obj = None):
+    def __init__(self, value = None):
         """Create empty linked list"""
-        self.head = node_obj
+        self.head = value
         self.size = 0
 
     def __len__(self):
@@ -62,3 +62,46 @@ class LinkedList:
                 current_node = current_node._next_node
 
         return False
+
+    def append(self, value):
+        '''Adds a new node with the given value to the end of the list'''
+        node = Node(value)
+        current_node = self.head
+        if not self.head:
+            self.head = node
+            return 
+        while current_node:
+            if current_node._next_node == None:
+                current_node._next_node = node
+                return
+            else:
+                current_node = current_node._next_node
+            
+    def insert_before(self, value, new_val):
+        '''Add a new node with the given newVal immediately before the first value node'''
+        node = Node(new_val)
+        current_node = self.head
+        while current_node:
+            if current_node._data == value:
+                node._next_node = current_node
+                self.head = node
+                return
+            if current_node._next_node:
+                if current_node._next_node._data == value:
+                    node._next_node = current_node._next_node
+                    current_node._next_node = node
+                    return
+                current_node = current_node._next_node
+        raise ValueError(f'{value} not found')
+    
+    def insert_after(self, value, new_val):
+        '''Add a new node with the given newVal immediately after the first value node'''
+        node = Node(new_val)
+        current_node = self.head
+        while current_node:
+            if current_node._data == value:
+                node._next_node = current_node._next_node
+                current_node._next_node = node
+                return
+            current_node = current_node._next_node
+        raise ValueError(f'{value} not found')
