@@ -119,3 +119,49 @@ def test_insert_after_last():
     ll.append('blah3')
     ll.insert_after('blah3', 33)
     assert ll.head._next_node._next_node._next_node._data == 33
+
+#
+# Class 07 - kth_from_end
+#
+def test_kth_greater_than_list_length():
+    '''
+    Successfully handle where k is greater than the length of the linked list
+    '''
+    ll = LinkedList()
+    ll.append('blah1')
+    with pytest.raises(ValueError):
+        ll.kth_from_end(2)
+
+def test_kth_equal_to_list_length():
+    '''Where k and the length of the list are the same'''
+    ll = LinkedList()
+    ll.append('blah1')
+    with pytest.raises(ValueError):
+        ll.kth_from_end(1)
+
+def test_k_not_positive_integer():
+    '''Where k is not a positive integer'''
+    ll = LinkedList()
+    ll.append('blah1')
+    with pytest.raises(ValueError):
+        ll.kth_from_end(-3)
+
+def test_linked_list_has_single_node():
+    ''' Where the linked list is of a size 1'''
+    ll = LinkedList()
+    ll.append('blah1')
+    assert ll.kth_from_end(0) == 'blah1'
+
+def test_middle_k():
+    """
+    “Happy Path” where k is not at the end, but 
+    somewhere in the middle of the linked list
+    """
+    ll = LinkedList()
+    ll.append('blah1')
+    ll.append('blah2')
+    ll.append('blah3')
+    ll.append('blah4')
+    ll.append('blah5')
+    ll.append('blah6')
+    assert ll.kth_from_end(3) == 'blah3'

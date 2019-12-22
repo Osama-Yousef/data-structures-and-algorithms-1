@@ -19,6 +19,7 @@ time  <- O(n)
 - append(value), which adds a new node with the given value to the end of the list.
 - insertBefore(value, newVal), which add a new node with the given newValue immediately before the first value node.
 - insertAfter(value, newVal), which add a new node with the given newValue immediately after the first value node.
+- kth_from_end(k), which takes a number, k, as a parameter. Returns the node’s value that is k from the end of the linked list. 
 
 ## Tests
 - Can successfully instantiate an empty linked list
@@ -34,3 +35,11 @@ time  <- O(n)
 - Can successfully insert a node before the first node of a linked list
 - Can successfully insert after a node in the middle of the linked list
 - Can successfully insert a node after the last node of the linked list
+- Where k is greater than the length of the linked list
+- Where k and the length of the list are the same
+- Where k is not a positive integer
+- Where the linked list is of a size 1
+- “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+
+## White Board
+![](./assets/06-ll-insertions02.jpg)
