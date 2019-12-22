@@ -105,3 +105,22 @@ class LinkedList:
                 return
             current_node = current_node._next_node
         raise ValueError(f'{value} not found')
+
+    def kth_from_end(self, k):
+        '''Returns the node’s value that is k from the end'''
+        if k < 0:
+            raise ValueError(f'{k} is a negative value')
+        if k == 0:
+            if self.head:
+                return self.head._data
+        leader = self.head
+        follower = self.head
+        incrementer = 0
+        while leader._next_node:
+            leader = leader._next_node
+            incrementer += 1
+            if incrementer > k:
+                follower = follower._next_node
+        if k >= incrementer:
+            raise ValueError(f'{k} exceeds length of list')
+        return follower._data
