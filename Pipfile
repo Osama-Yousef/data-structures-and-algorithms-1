@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 pytest = "*"
+breadth = "*"
 
 [dev-packages]
 
