@@ -52,8 +52,37 @@ def test_return_max_single_node():
     assert actual_iterative == 15
     assert actual_recursive == 15
 
+def test_return_maxVal_of_all():
+    '''Test that binary tree with many nodes returns correct value.'''
+    tree = BinaryTree()
+    tree.add(11)
+    tree.add(9)
+    tree.add(15)
+    tree.add(5)
+    tree.add(11)
+    tree.add(9)
+    tree.add(15)
+    tree.add(5)
+    actual_iterative = tree.find_maximum_value_iterative()
+    actual_recursive = tree.find_maximum_value_recursive()
+    assert actual_iterative == 15
+    assert actual_recursive == 15
 
+def test_no_string():
+    '''Test that binary tree with many nodes returns exception if given non-numeric value.'''
+    tree = BinaryTree()
+    tree.add('string_cheese')
+    actual_iterative = tree.find_maximum_value_iterative()
+    actual_recursive = tree.find_maximum_value_recursive()
+    assert actual_iterative == 15
+    assert actual_recursive == 15
 
-# - test_return_maxVal_of_all - Test that binary tree with many nodes returns correct value.
-# - test_no_string - Test that binary tree with many nodes returns exception if given non-numeric value.
-# - test_max_of_none - If tree._root is None return None.
+def test_max_of_none():
+    '''test_max_of_none - If tree._root is None return None.'''
+    tree = BinaryTree()
+    actual_iterative = tree.find_maximum_value_iterative()
+    actual_recursive = tree.find_maximum_value_recursive()
+
+    assert actual_iterative == 0
+    assert actual_recursive == 0
+
