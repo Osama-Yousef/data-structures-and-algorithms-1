@@ -1,4 +1,4 @@
-from breadth import _Node, BinaryTree, BinarySearchTree, breadth_first
+from find_maximum_value import _Node, BinaryTree, BinarySearchTree, breadth_first
 
 def test_empty_tree():
     '''If tree._root is None return None.'''
@@ -40,4 +40,20 @@ def test_many_nodes():
     tree.add(5)
     actual = breadth_first(tree)
     expected = [11, 9, 15, 5, 11, 9, 15, 5]
-    assert expected == actual   
+    assert expected == actual
+
+def test_return_max_single_node():
+    '''Test that binary tree with single item returns correct value.'''
+    tree = BinaryTree()
+    tree.add(15)
+    actual_iterative = tree.find_maximum_value_iterative()
+    actual_recursive = tree.find_maximum_value_recursive()
+    expected = [15]
+    assert actual_iterative == 15
+    assert actual_recursive == 15
+
+
+
+# - test_return_maxVal_of_all - Test that binary tree with many nodes returns correct value.
+# - test_no_string - Test that binary tree with many nodes returns exception if given non-numeric value.
+# - test_max_of_none - If tree._root is None return None.
