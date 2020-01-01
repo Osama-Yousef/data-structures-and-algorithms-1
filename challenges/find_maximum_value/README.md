@@ -1,5 +1,5 @@
-# Code Challenge 17 - Breadth First 
-Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+# Code Challenge 18 - Find Max Binary Tree Value
+Find the Maximum Value in a Binary Tree
 
 ## Tests
 - test_empty_tree - If tree._root is None return None.
@@ -7,12 +7,17 @@ Write a breadth first traversal method which takes a Binary Tree as its unique i
 - test_four_nodes - Test that binary tree with four nodes returns list with those four items.
 - test_many_nodes - Test that binary tree with 10 nodes returns list with those 10 items.
 
+- test_return_max_single_node - Test that binary tree with single item returns correct value.
+- test_return_maxVal_of_all - Test that binary tree with many nodes returns correct value.
+- test_no_string - Test that binary tree with many nodes returns exception if given non-numeric value.
+- test_max_of_none - If tree._root is None return None.
+
 ## Challenge
-Write a function called merge_lists which takes a tree as input. Traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+Write an instance method called find-maximum-value. Return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
 
 ## Big O notation
 - time <- O(n)
 - space <- O(n)
 
 ## Solution
-![whiteboard](./assets/breadth-first.jpg)
+![whiteboard](./assets/max_bin.jpg')
