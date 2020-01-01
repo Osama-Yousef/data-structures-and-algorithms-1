@@ -40,7 +40,7 @@ class BinaryTree:
         """Recursive version - return the maximum value stored in the tree"""
         max_val = 0
 
-        if not self.root:
+        if not self._root:
             return max_val
 
         def _walk(node):
@@ -56,22 +56,22 @@ class BinaryTree:
             if node.right:
                 _walk(node.right)
 
-        _walk(self.root)
+        _walk(self._root)
 
         return max_val
 
     def find_maximum_value_iterative(self):
-        '''Iteratie version - return the maximum value stored in the tree'''
+        '''Iterative version - return the maximum value stored in the tree'''
         
         max_val = 0
 
-        if not self.root:
-            return result
+        if not self._root:
+            return max_val
 
         queue = []
         queue.append(self._root)
 
-        while lst:
+        while queue:
             current_node = queue.pop(0)
 
             if current_node.value > max_val:
@@ -83,7 +83,7 @@ class BinaryTree:
             if current_node.right:
                 queue.append(current_node.right)
 
-        return result
+        return max_val
 
 class BinarySearchTree():
     """BinarySearchTree with enough functionality for breadth first adding"""

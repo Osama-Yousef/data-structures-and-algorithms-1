@@ -1,4 +1,5 @@
 from find_maximum_value import _Node, BinaryTree, BinarySearchTree, breadth_first
+import pytest
 
 def test_empty_tree():
     '''If tree._root is None return None.'''
@@ -72,10 +73,10 @@ def test_no_string():
     '''Test that binary tree with many nodes returns exception if given non-numeric value.'''
     tree = BinaryTree()
     tree.add('string_cheese')
-    actual_iterative = tree.find_maximum_value_iterative()
-    actual_recursive = tree.find_maximum_value_recursive()
-    assert actual_iterative == 15
-    assert actual_recursive == 15
+    with pytest.raises(ValueError):
+        actual_iterative = tree.find_maximum_value_iterative()
+    with pytest.raises(ValueError):
+        actual_recursive = tree.find_maximum_value_recursive()
 
 def test_max_of_none():
     '''test_max_of_none - If tree._root is None return None.'''
