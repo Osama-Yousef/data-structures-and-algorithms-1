@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/home/aimbrock/.local/share/virtualenvs/data-structures-and-algorithms-5Nns2nE7/bin/python",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+}
