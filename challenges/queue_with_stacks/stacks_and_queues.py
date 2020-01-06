@@ -20,12 +20,12 @@ class Stack:
 
     def pop(self):
         '''Method, removes node from top of Stack, returns node's data'''
-        if not self.is_empty():
-            self.top = self.top.next_node
-            temp = self.top
-            return temp.data
-
-        return None
+        if self.top is None:
+            return "Empty"
+        temp = self.top
+        self.top = self.top.next_node
+        
+        return temp.data
 
     def peek(self):
         '''Method, returns val of node at top of stack, doesn't remove from stack'''
@@ -65,7 +65,6 @@ class Queue:
         temp.next = None
         
         return temp.data
-
 
     def enqueue(self, data):
         '''Method, takes any value as argument and adds node with that value to back of queue'''
