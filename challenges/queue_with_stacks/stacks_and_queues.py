@@ -58,13 +58,13 @@ class Queue:
 
     def dequeue(self):
         '''Method, removes node from front of queue, returns that node's data'''
-        if not self.is_empty():
-            self.front = self.front.next_node
-            temp = self.front
-            temp.next = None
-            return temp.data
-
-        return None
+        if not self.front:
+            return None
+        temp = self.front
+        self.front = self.front.next_node
+        temp.next = None
+        
+        return temp.data
 
     def enqueue(self, data):
         '''Method, takes any value as argument and adds node with that value to back of queue'''
