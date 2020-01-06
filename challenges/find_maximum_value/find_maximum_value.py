@@ -74,6 +74,8 @@ class BinaryTree:
         while queue:
             current_node = queue.pop(0)
 
+            if type(current_node) != int:
+                raise ValueError(f'{current_node} of type int only.')
             if current_node.value > max_val:
                 max_val = current_node.value
 
