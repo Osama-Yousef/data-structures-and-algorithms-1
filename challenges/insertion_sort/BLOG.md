@@ -2,7 +2,7 @@
 
 ## Description
 
-Selection Sort is a sorting algorithm in the same family as bubble sort and selection sort but simpler and more efficient. Selection sort works by iterating across the array starting at the front and comparing if the value of the element next to it is lower. If the next door value is lower the elements change places.
+Insertion Sort is a sorting algorithm in the same family as bubble sort and selection sort but simpler and more efficient. Insertion sort works by iterating across the array starting at the front and comparing if the value of the element next to it is lower. If the next door value is lower the elements change places.
 
 ### Pseudocode
 
