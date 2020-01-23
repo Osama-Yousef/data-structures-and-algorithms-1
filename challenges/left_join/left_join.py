@@ -9,8 +9,7 @@ def join(table_1, table_2, type='L'):
     if type == 'R':
         table_1, table_2 = table_2, table_1
     results = []
-    for key in table_1:
-        results.append(key, table_1[key])
-        results.append(key, table_2[key] or None))
+    for key, value in table_1.items():
+        results.append([key, value, table_2.get(key, None)])
         
     return results
