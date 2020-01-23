@@ -1,6 +1,6 @@
-# Code Challenge 33 - left-join
+# Code Challenge 33 - Hashmap LEFT JOIN
 
-| | |
+|||
 |:-|:-|
 | *Author:*      | Aaron Imbrock |
 | *Create Date:* | 01/22/2020    |
