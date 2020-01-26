@@ -1,4 +1,5 @@
 def merge_sort(arr):
+    '''Takes in a list and sorts list in place'''
     n = len(arr)
 
     if n > 1:
@@ -10,6 +11,10 @@ def merge_sort(arr):
         merge(left, right, arr)
 
 def merge(left, right, arr):
+    '''
+    Functions as helper function for merge_sort(), doing the actual
+    sorting.
+    '''
     left_idx, right_idx, arr_idx = 0, 0, 0
 
     while left_idx < len(left) and right_idx < len(right):
