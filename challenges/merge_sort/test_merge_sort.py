@@ -9,3 +9,9 @@ def test_empty_list():
     merge_sort([])
     expected = []
     assert array == expected
+
+def test_one_item_list():
+    array = [5]
+    merge_sort([])
+    expected = [5]
+    assert array == expected
