@@ -1,15 +1,15 @@
-# Blog for Code Challenge 26 - Insertion Sort
+# Blog for Code Challenge 27 - Merge Sort
 
 ## Description
 
-Insertion Sort is a sorting algorithm in the same family as bubble sort and selection sort but simpler and more efficient. Insertion sort works by iterating across the array starting at the front and comparing if the value of the element next to it is lower. If the next door value is lower the elements change places.
+ADD
 
 ### Pseudocode
 
 ```pseudocode
 ALGORITHM Mergesort(arr)
     DECLARE n <-- arr.length
-           
+
     if n > 1
       DECLARE mid <-- n/2
       DECLARE left <-- arr[0...mid]
@@ -33,7 +33,7 @@ ALGORITHM Merge(left, right, arr)
         else
             arr[k] <-- right[j]
             j <-- j + 1
-            
+
         k <-- k + 1
 
     if i = left.length
@@ -47,10 +47,12 @@ ALGORITHM Merge(left, right, arr)
 ```python3
 
 
+
 ```
 
 ## Trace
-<!-- 
+
+
 ### Pass 1
 
 ![Pass 1](./assets/1stpass.jpg)
