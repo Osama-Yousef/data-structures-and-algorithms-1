@@ -1,30 +1,41 @@
+class _Node():
+    '''BT specific node class.'''
+    def __init__(self, val=None, left=None, rht=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class BinaryTree:
+    def __init__(self):
+        self.root = None
+
 def tree_intersection(left_tree, right_tree):
     '''Take in two binary trees, return set of values found in both trees.'''
 
-    if left_tree == None or right_tree == None:
-        return
+    # Elements from either sets (A) + (B)
+    union = set()
+    # Elements found only in both sets (A()B)
+    intersection = set()
 
-    touched = set()
-    overlap = set()
+    if left_tree.root == None or right_tree.root == None:
+        return intersection
 
-    def walk(node):
-        nonlocal touched
-
-        touched.add(node.value)
-        walk(node.left)
-        walk(node.right)
-
-    def walk_other(node):
-        nonlocal touched
-        nonlocal overlap
-
-        if node.value in touched:
-            overlap.add(node.value)
-
-        walk(node.left)
-        walk(node.right)
+    def walk(node, union=union, intersection=intersection):
+        '''
+        tree_intersection() helper function.
+        Take in root node, union and intersection variables.
+        Walk tree updating respective sets as we go.
+        '''
+        if node.left:
+            walk(node.left, union, intersection)
+        if node.value in union:
+            intersection.add(node.value)
+        else:
+            union.add(node.value)
+        if node.right:
+            walk(node.right, union, intersection)
 
     walk(left_tree.root)
-    walk_other(right_tree.root)
+    walk(right_tree.root)
 
-    return overlap
+    return intersection
