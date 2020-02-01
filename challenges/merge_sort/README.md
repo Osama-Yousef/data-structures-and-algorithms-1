@@ -4,6 +4,10 @@ Merge Sort on a given array.
 
 ## Tests
 
+- test_empty_list - Test that empty list is handled correctly.
+- test_one_item_list - Test that single list item is handled correctly.
+- test_two_item_list - Test that list with two items is handled correctly.
+- test_many_item_list - Test that normal list is handled correctly.
 
 ## Challenge
 

@@ -1,15 +1,15 @@
-# Blog for Code Challenge 26 - Insertion Sort
+# Blog for Code Challenge 27 - Merge Sort
 
 ## Description
 
-Insertion Sort is a sorting algorithm in the same family as bubble sort and selection sort but simpler and more efficient. Insertion sort works by iterating across the array starting at the front and comparing if the value of the element next to it is lower. If the next door value is lower the elements change places.
+Merge sort is a divide and conquer sorting algorithm. It recursiveley splits each portion of the origin array until it's comparing only two arrays with a single element each. It then merges the sorted subarrays back together.
 
 ### Pseudocode
 
 ```pseudocode
 ALGORITHM Mergesort(arr)
     DECLARE n <-- arr.length
-           
+
     if n > 1
       DECLARE mid <-- n/2
       DECLARE left <-- arr[0...mid]
@@ -33,7 +33,7 @@ ALGORITHM Merge(left, right, arr)
         else
             arr[k] <-- right[j]
             j <-- j + 1
-            
+
         k <-- k + 1
 
     if i = left.length
@@ -45,12 +45,47 @@ ALGORITHM Merge(left, right, arr)
 ### Python3 Implementation
 
 ```python3
+def merge_sort(arr):
+    '''Takes in a list and sorts list in place'''
+    n = len(arr)
 
+    if n > 1:
+        mid = n // 2
+        left = arr[:mid]
+        right = arr[mid:]
+        merge_sort(left)
+        merge_sort(right)
+        merge(left, right, arr)
 
+def merge(left, right, arr):
+    '''
+    Functions as helper function for merge_sort(), doing the actual
+    sorting.
+    '''
+    left_idx, right_idx, arr_idx = 0, 0, 0
+
+    while left_idx < len(left) and right_idx < len(right):
+        if left[left_idx] <= right[right_idx]:
+            arr[arr_idx] = left[left_idx]
+            left_idx += 1
+        else:
+            arr[arr_idx] = right[right_idx]
+            right_idx += 1
+
+        arr_idx += 1
+
+    if left_idx == len(left):
+        for item in right[right_idx:]:
+            arr[arr_idx] = item
+            arr_idx += 1
+    else:
+        for item in left[left_idx:]:
+            arr[arr_idx] = item
+            arr_idx += 1
 ```
 
 ## Trace
-<!-- 
+
 ### Pass 1
 
 ![Pass 1](./assets/1stpass.jpg)
