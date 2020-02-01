@@ -2,7 +2,7 @@
 
 ## Description
 
-Quick Sort is a sorting algorithm that works in a divide and conquer way. ...
+Quick sort is similar to merge sort, in that it's a conquer and divide style sorting algorythm. It chooses a pivot value and partitions the input array into a left and right array. The main difference  between merge sort and quick sort is that by the time quick sort has broken up the array into sub arrays of single elements the array is sorted.
 
 ### Pseudocode
 
