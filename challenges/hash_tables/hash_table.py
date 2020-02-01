@@ -1,3 +1,5 @@
+from linked_list import LinkedList
+
 # add: takes in both the key and value. This method should hash the key, and add the key and value pair to the table, handling collisions as needed.
 # get: takes in the key and returns the value from the table.
 # contains: takes in the key and returns a boolean, indicating if the key exists in the table already.
@@ -6,12 +8,25 @@
 class HashTable:
     def __init__(self):
         '''No default inputs.'''
-        bucket = [None] * 1024
+        buckets = [None] * 1024
 
     def add(self, key, value):
-        '''TODO: Hashes key, adds key and value pair to table. Handles collisions as necessary.'''
-        self.key = key
-        self.value = value
+        '''Hashes key, adds key and value pair to table. Handles collisions as necessary.'''
+
+        index = self.hash(key)
+        if self.buckets[index] == None:
+            bucket = LinkedList()
+        else:
+            bucket = self.buckets[index]    # bucket is now a linked list
+        
+        bucket.insert(
+            {
+                key: key,
+                value: value,
+            }
+        )
+        
+        self.buckets[index] = bucket
 
     def get(self, key):
         '''TODO: Takes in key and returns the value from the table.'''
@@ -25,7 +40,7 @@ class HashTable:
         pass
 
     def hash(self, key):
-        '''TODO: Takes in an arbitrary key and returns an index in the collection.'''
+        '''Takes in an arbitrary key and returns an index in the collection.'''
         # Algo
         # - Add or multiply all the ASCII values together.
         # - Multiply it by a prime number such as 599.
