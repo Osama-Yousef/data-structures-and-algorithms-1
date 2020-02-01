@@ -2,7 +2,7 @@
 
 ## Description
 
-ADD
+Merge sort is a divide and conquer sorting algorithm. It recursiveley splits each portion of the origin array until it's comparing only two arrays with a single element each. It then merges the sorted subarrays back together.
 
 ### Pseudocode
 
