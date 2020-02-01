@@ -1,4 +1,4 @@
-
+import re
 
 """
 - Write a function that accepts a lengthy string parameter.
@@ -10,3 +10,22 @@ return the first word to occur more than once in that provided string.
 """
 
 def repeated_word(string):
+    '''
+    Takes a string and returns first word to occur more
+    than once in that provided string.
+    '''
+    unique = set()
+    phrase = string.lower().split(' ')
+
+    for word in phrase:
+        word = re.sub(r'\W', '', word)
+        if word in unique:
+            return word
+        unique.add(word)
+
+    return None
+
+if __name__ == "__main__":
+    test_word = 'asd f8u3! ASD, ksu12 34 @$!!'
+    output = repeated_word(test_word)
+    print(output)
