@@ -67,6 +67,4 @@ class HashTable:
         hashed_key = hashed_key % 1024
 
         return hashed_key
-        
-
-    
+  
