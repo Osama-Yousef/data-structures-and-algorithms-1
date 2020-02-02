@@ -47,3 +47,12 @@ def test_hash_handles_collisions():
     assert actual == 'what ever you want'
     actual = ht.get('god')
     assert actual == 'not what ever you want'
+
+def test_hash_contains():
+    '''Test that contains() returns Boolean representing if key is present'''
+    ht = HashTable()
+    ht.add('dog','what ever you want')
+    actual = ht.contains('dog')
+    assert actual == True
+    actual = ht.contains('god')
+    assert actual == False
