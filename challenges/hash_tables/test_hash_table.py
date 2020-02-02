@@ -33,5 +33,8 @@ def test_hash_get():
     assert actual == 'what ever you want'
 
 def test_hash_get_value_not_present():
-    '''Test that hash.get() handles collisions correctly.'''
-    pass
+    '''Test that hash.get() raises errors correctly.'''
+    with pytest.raises(KeyError):
+        ht = HashTable()
+        ht.get('dog')
+
