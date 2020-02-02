@@ -85,6 +85,8 @@ class BinaryTree:
 
 class BinarySearchTree(BinaryTree):
     '''Create a Binary Search Tree by importing a Binary Tree'''
+    def __init__(self, data=None):
+        super().__init__(data)
 
     def add(self, data):
         '''Adds new node to BST'''
@@ -115,5 +117,31 @@ class BinarySearchTree(BinaryTree):
 
                     return
 
-    def contains(self):
-        pass
+    def contains(self, data):
+        ''' Return Boolean indicating existence (but not location) of value on tree '''
+
+        if not self.root:
+            return False
+
+        current = self.root
+
+        while True:
+            if data == current.data:
+                
+                return True
+
+            # Looking for something less than data (value)
+            if data < current.data:
+                if current.left:
+                    current = current.left
+                else:
+
+                    return False
+
+            # Looking for something greater than data (value)
+            else:
+                if current.right:
+                    current = current.right
+                else:
+
+                    return False
