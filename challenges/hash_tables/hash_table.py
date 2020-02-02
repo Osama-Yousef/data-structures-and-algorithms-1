@@ -1,14 +1,9 @@
 from linked_list import LinkedList
 
-# add: takes in both the key and value. This method should hash the key, and add the key and value pair to the table, handling collisions as needed.
-# get: takes in the key and returns the value from the table.
-# contains: takes in the key and returns a boolean, indicating if the key exists in the table already.
-# hash: takes in an arbitrary key and returns an index in the collection.
-
 class HashTable:
     def __init__(self):
         '''No default inputs.'''
-        buckets = [None] * 1024
+        self.buckets = [None] * 1024
 
     def add(self, key, value):
         '''Hashes key, adds key and value pair to table. Handles collisions as necessary.'''
@@ -21,23 +16,44 @@ class HashTable:
         
         bucket.insert(
             {
-                key: key,
-                value: value,
+                'key': key,
+                'value': value,
             }
         )
         
         self.buckets[index] = bucket
 
     def get(self, key):
-        '''TODO: Takes in key and returns the value from the table.'''
-        self.key = key
-        self.value = value
-        pass
+        '''Takes in key and returns the value from the table. Handles collisions as necessary.'''
+        idx = self.hash(key)
+        # bucket is the element, and bucket is either None or LL.
+        bucket = self.buckets[idx]
+        if bucket == None:
+            raise KeyError('Key not present in hash table')
+        current = bucket.head
+        while current:
+            if current._data['key'] == key:
+                return current._data['value']
+            current = current._next_node
+        
+        # We walked entire ll and didn't find key
+        raise KeyError('Key not present in hash table')
 
     def contains(self, key):
-        '''TODO: Takes in the key and returns boolean, indicating if the key exists in the table already.'''
-        self.key = key
-        pass
+        '''Takes in the key and returns a boolean, indicating if the key exists in the table already.'''
+        idx = self.hash(key)
+        # bucket is the element, and bucket is either None or LL.
+        bucket = self.buckets[idx]
+        if bucket == None:
+            return False
+        current = bucket.head
+        while current:
+            if current._data['key'] == key:
+                return True
+            current = current._next_node
+        
+        # We walked entire ll and didn't find key
+        return False
 
     def hash(self, key):
         '''Takes in an arbitrary key and returns an index in the collection.'''
