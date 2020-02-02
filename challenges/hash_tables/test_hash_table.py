@@ -38,3 +38,12 @@ def test_hash_get_value_not_present():
         ht = HashTable()
         ht.get('dog')
 
+def test_hash_handles_collisions():
+    '''Test that key collisions are handled properly.'''
+    ht = HashTable()
+    ht.add('dog', 'what ever you want')
+    ht.add('god', 'not what ever you want')
+    actual = ht.get('dog')
+    assert actual == 'what ever you want'
+    actual = ht.get('god')
+    assert actual == 'not what ever you want'
