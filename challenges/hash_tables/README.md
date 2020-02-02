@@ -4,12 +4,12 @@ Implement a hash table with the methods listed under Challenge.
 
 ## Tests
 
-- Adding a key/value to your hashtable results in the value being in the data structure
-- Retrieving based on a key returns the value stored
-- Successfully returns null for a key that does not exist in the hashtable
-- Successfully handle a collision within the hashtable
-- Successfully retrieve a value from a bucket within the hashtable that has a collision
-- Successfully hash a key to an in-range value
+- test_hash_is_deterministic - Test that hash is deterministic i.e. that that same key will return the same index.'''
+- test_hash_add - Test that adding a key/value to your hashtable results in the value being in the data structure'''
+- test_hash_get - Test that getting a key returns the value from the table.
+- test_hash_get_value_not_present - Test that hash.get() raises errors correctly.
+- test_hash_handles_collisions - Test that key collisions are handled properly.
+- test_hash_contains - Test that contains() returns Boolean representing if key is present.
 
 ## Challenge
 
@@ -23,6 +23,11 @@ Implement a Hashtable with the following methods:
 ## Approach & Efficiency
 
 ## API
+
+- add: takes in both the key and value. This method should hash the key, and add the key and value pair to the table, handling collisions as needed.
+- get: takes in the key and returns the value from the table.
+- contains: takes in the key and returns a boolean, indicating if the key exists in the table already.
+- hash: takes in an arbitrary key and returns an index in the collection.
 
 ## Big O notation
 
