@@ -33,9 +33,8 @@ Output (as set):
 
 | Test Name     | Description       |
 | :-------------|:-------------     |
-| test_         | what it does      |
-| test_         | what it does      |
-| test_         | also what it does |
+| test_null_tree | Returns an empty set if either tree is null (empty) |
+| test_intersection | Test that given two BTs only elements found in both sets are returned. |
 
 ## Big O notation
 
