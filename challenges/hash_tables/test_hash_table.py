@@ -25,3 +25,13 @@ def test_hash_add():
     assert 'dog' == key
     assert 'what ever you want' == value
 
+def test_hash_get():
+    '''Test that getting a key returns the value from the table.'''
+    ht = HashTable()
+    ht.add('dog','what ever you want')
+    actual = ht.get('dog')
+    assert actual == 'what ever you want'
+
+def test_hash_get_value_not_present():
+    '''Test that hash.get() handles collisions correctly.'''
+    pass
